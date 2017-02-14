@@ -1,0 +1,2 @@
+designed as mobile first
+rough sketch shows initial version
