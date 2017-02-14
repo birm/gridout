@@ -1,0 +1,29 @@
+{
+  "name": "gridout",
+  "version": "1.0.0",
+  "description": "grid layout design herlper tool",
+  "main": "gridout.js",
+  "scripts": {
+    "test": "test_gridout.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/birm/gridout.git"
+  },
+  "keywords": [
+    "layout",
+    "design",
+    "graphic",
+    "ui",
+    "ux",
+    "grid",
+    "column",
+    "row"
+  ],
+  "author": "Ryan Birmingham",
+  "license": "SEE LICENSE IN LICENSE.MD",
+  "bugs": {
+    "url": "https://github.com/birm/gridout/issues"
+  },
+  "homepage": "https://github.com/birm/gridout#readme"
+}
