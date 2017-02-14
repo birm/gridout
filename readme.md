@@ -1,4 +1,4 @@
 # gridout
 grid layout helper tool
 
-[preview textout here](http://rbirm.us/textout)
+[preview gridout here](http://rbirm.us/gridout)
