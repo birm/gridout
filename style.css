@@ -1,0 +1,24 @@
+html {
+  min-width: 150px;
+  max-width: 500px;
+}
+
+body {
+  background-color: ;
+}
+
+#topbar {
+  position: fixed;
+  height: 7%;
+  min-height: 100px;
+}
+
+#bottombar {
+  position: fixed;
+  height: 7%;
+  min-height: 100px;
+}
+
+#gridarea {
+  margin-top: 10% 3% 10% 3%;
+}
