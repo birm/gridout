@@ -25,5 +25,11 @@
   "bugs": {
     "url": "https://github.com/birm/gridout/issues"
   },
-  "homepage": "https://github.com/birm/gridout#readme"
+  "homepage": "https://github.com/birm/gridout#readme",
+  "dependencies": {
+    "angular": "^1.6.2"
+  },
+  "devDependencies": {
+    "tape": "^4.6.3"
+  }
 }
