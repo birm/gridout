@@ -1,0 +1,3 @@
+background/paper - #F9F6EF (off-white)
+main (text, lines) - #090C02 (off-black)
+accent (buttons) - #F15025 (flame)
