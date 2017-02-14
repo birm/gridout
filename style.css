@@ -1,0 +1,51 @@
+/* layout tool apps - common */
+html {
+  min-width: 150px;
+  max-width: 500px;
+  min-height: 400px;
+  max-height: 800px;
+}
+
+body {
+  background-color: #F9F6EF;
+}
+
+.container{
+  left: 10px;
+  position:absolute;
+}
+
+#topbar {
+  top: 0;
+  right: 0;
+  position: fixed;
+  z-index: 3000;
+  width: 100%;
+  height: 80px;
+  height: 20%;
+  min-height: 40px;
+  max-height: 80px;
+  background-color: #090C02;
+}
+
+#bottombar {
+  bottom: 0;
+  right: 0;
+  z-index: 3001;
+  width: 100%;
+  position: fixed;
+  height: 10%;
+  min-height: 40px;
+  max-height: 50px;
+}
+
+#contentarea {
+  margin: 100px 3% 50px 3%;
+}
+
+/* gridout specific */
+
+/* Identity bar color */
+#bottombar {
+  background-color: #F15025;
+}
