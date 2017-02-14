@@ -1,3 +1,4 @@
+/* layout tool apps - common */
 html {
   min-width: 150px;
   max-width: 500px;
@@ -11,6 +12,7 @@ body {
   position: fixed;
   height: 7%;
   min-height: 100px;
+  background-color: #090C02;
 }
 
 #bottombar {
@@ -19,6 +21,13 @@ body {
   min-height: 100px;
 }
 
-#gridarea {
+#contentarea {
   margin-top: 10% 3% 10% 3%;
+}
+
+/* gridout specific */
+
+/* Identity bar color */
+#bottombar {
+  background-color: #F9F6EF;
 }
