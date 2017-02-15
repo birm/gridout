@@ -154,7 +154,7 @@ class gridout {
     /** Serialize the object as a JSON
      */
     get_json() {
-        var json = {
+        var json_obj = {
             "gridout": {
                 "xelem": this.x,
                 "yelem": this.y,
@@ -163,8 +163,9 @@ class gridout {
                 "size": this.size
             }
         }
+        return json_obj
     };
-    return json
+
 
 
     /** Color a square when dragged over
