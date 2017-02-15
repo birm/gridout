@@ -146,16 +146,20 @@ class gridout {
         xmlout += "  <yelem>" + this.x + "</yelem>";
         xmlout += "  <margin>" + this.margin + "</margin>";
         xmlout += "  <grid>" + grid + "</grid>";
+        xmlout += "  <size>" + this.size + "</size>"
         xmlout += "</gridout>"
         return xmlout;
     }
 
+    /** Serialize the object as a JSON
+     */
     get_json() {
         var json = {
             "gridout": {
                 "xelem": this.x,
                 "yelem": this.y,
-                "margin": this.margin "grid": document.getElementById('grid_workspace').outerHTML
+                "margin": this.margin "grid": document.getElementById('grid_workspace').outerHTML,
+                "size": this.size
             }
         }
     };
@@ -181,6 +185,17 @@ class gridout {
         //this.color_margins();
     }
 
+    /** Load from a JSON object (get_json generates this)
+    *@constructor
+    *@param {object[]} loaded - the object to load
+    */
+    static
+    load(loaded){
+      go = new this(loaded['x'], loaded['y'], loaded['margin'], loaded['size'])
+      go.draw()
+      document.getElementById('grid_workspace')=loaded['grid'];
+      return go;
+    }
 
 
 }
