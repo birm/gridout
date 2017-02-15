@@ -18,9 +18,15 @@ function grid(x, y, margin){
   var inner_height = (1 - margin)* outer_height;
   var offset = (margin * outer_height)/2;
   for each in x{
-    for each in y{
-      // okay
-    }
+    // draw top margin box
   }
-
+  for each in y{
+    for each in x{
+      // draw left margin box
+      // draw bottom margin box
+    }
+    // draw right margin box
+  }
+  svg = svg + "</svg>"
+  return svg;
 }
