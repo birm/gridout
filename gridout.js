@@ -58,7 +58,7 @@ class gridout{
       for (x=0; x < this.xelem; x++){
         // get the baseline x position
         var xpos = x * this.outer_size; // MAY need to invert with outer_size*xelem - (x*outer_size)
-        var name = "grid" + x + y;
+        var name = "grid" + x + "x" + y;
         // draw left margin box
         svg += drawRect(name+"left", xpos, ypos, this.margin_size, this.outer_size);
         // draw top margin box
@@ -116,7 +116,7 @@ class gridout{
   drag(xpos, ypos, parent){
     var tapped = find(xpos, ypos);
     var square = document.getElementById(tapped);
-    var parent = document.getElementById(parent);
+    var parent = document.getElementById(parent[4:]);
     // set color
     var color = parent.getAttribute("fill");
     document.getElementById(square).setAttribute("fill", color);
@@ -124,8 +124,15 @@ class gridout{
     // TODO ensure element snaps back when done
   }
 
-  //TODO set ondragover
-  // needs to event.preventDefault(), get event info, and call drag
+  /** Color a square when dragged over
+  *@param {int} event - passed event information
+  */
+  @static dragover(event){
+    event.preventDefault();
+    // TODO MAy need to contextualize clientX and clientY for svg coords
+    drag(event.clientX, event.clientY, event.currentTarget);
+  }
+
 
 }
 
