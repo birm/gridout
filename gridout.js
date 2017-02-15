@@ -110,11 +110,14 @@ class gridout{
     document.createElement("drag"+tapped).setAttribute("style", style).setAttribute("draggable", true);
   }
 
-  /** Change square color on tap
+  /** Change square when dragged over
   *@param {int} element - the element dragged over
   */
   drag(element){
     return null;
+    // set color
+    // remove old dragable
+    // set new dragable
   }
 
 }
