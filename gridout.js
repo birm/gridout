@@ -65,6 +65,14 @@ class gridout{
         svg += drawRect(name+"top", xpos , ypos + this.margin_size + this.inner_size, this.outer_size, this.margin_size);
         // draw the grid element box
         svg += drawRect(name, xpos + this.margin_size, ypos + this.margin_size, this.inner_size, this.inner_size);
+
+        // place draggable element for painting on each square
+
+        var style = "position:relative; left: "
+        style +=  xpos + "; top: "
+        style +=  ypos +  "; height: "
+        style +=  this.outer_size + " ; width: " + this.outer_size + ";";
+        document.createElement("drag"+tapped).setAttribute("style", style).setAttribute("draggable", true);
       }
       // draw right margin box
       svg += drawRect(name+"right", xpos + this.margin_size + this.inner_size, ypos, this.margin_size, this.outer_size);
@@ -98,26 +106,22 @@ class gridout{
     var current = this.colors.indexOf(square.getAttribute("fill"));
     // set to next one
     square.setAttribute("fill", this.colors((current+1)%(this.colors.length)));
-
-    //remove older draggable element if there
-    document.getElementById("drag"+tapped).outerHTML = '';
-
-    // place an invisible draggable element there
-    var style = "position:relative; left: "
-    style+= square.getAttribute(x) + "; top: "
-    style+=  square.getAttribute(y) +  "; height: "
-    style+=  this.outer_size + " ; width: " + this.outer_size + ";";
-    document.createElement("drag"+tapped).setAttribute("style", style).setAttribute("draggable", true);
   }
 
   /** Change square when dragged over
-  *@param {int} element - the element dragged over
+  *@param {int} xpos - in-element x position of the touched area in pixels
+  *@param {int} ypos - in-element y position of the touched area in pixels
+  *@param {int} parent - the square of the drag start
   */
-  drag(element){
-    return null;
+  drag(xpos, ypos, parent){
+    var tapped = find(xpos, ypos);
+    var square = document.getElementById(tapped);
+    var parent = document.getElementById(parent);
     // set color
-    // remove old dragable
-    // set new dragable
+    var color = parent.getAttribute("fill");
+    document.getElementById(square).setAttribute("fill", color);
+
+    // TODO ensure element snaps back when done
   }
 
 }
