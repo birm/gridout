@@ -11,6 +11,6 @@ test( 'initialization tests', function(t) {
     t.plan(1);
 
     t.doesNotThrow( function() {
-        onetwothreefour = new gridout(5, 5, 0.1, 200);
+        basic = new gridout(5, 5, 0.1, 200);
     }, '*', "new GridOut() construction");
 });

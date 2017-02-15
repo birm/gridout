@@ -30,6 +30,7 @@
     "angular": "^1.6.2"
   },
   "devDependencies": {
+    "jsdoc": "^3.4.3",
     "tape": "^4.6.3"
   }
 }
