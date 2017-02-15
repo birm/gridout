@@ -21,6 +21,20 @@ class GridOut{
     this.size = size;
   }
 
+  /**
+  Each grid cell has a top and left margin, and has an indirect bottom and right margin in the left and top margins of other squares.
+  The bottom row contains additional bottom margins, and each row has an additional right margin, to complete the grid.
+  _______________
+  |  _________  |
+  | |         | |
+  | |         | |
+  | |         | |
+  | |         | |
+  |  _________  |
+  _______________
+
+  */
+
   /** Generate a SVG from x, y, and margin sizes.
   */
   function draw(){
@@ -34,15 +48,19 @@ class GridOut{
     var outer_height = 100*(1./x) * size;
     var inner_height = (1 - margin)* outer_height * size;
     var offset = (margin * outer_height)/2 * size;
-    for each in x{
-      // draw top margin box
-    }
+
     for each in y{
       for each in x{
+        var name = "grid" + x + y;
         // draw left margin box
-        // draw bottom margin box
+        name+"left";
+        // draw top margin box
+        name+"top";
       }
       // draw right margin box
+    }
+    for each in x{
+      // draw bottom margin box
     }
     svg = svg + "</svg>"
     return svg;
