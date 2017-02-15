@@ -55,19 +55,19 @@ class gridout{
         var xpos = x * this.outer_size; // MAY need to invert with outer_size*xelem - (x*outer_size)
         var name = "grid" + x + y;
         // draw left margin box
-        drawRect(name+"left", xpos, ypos, this.margin_size, this.outer_size);
+        svg += drawRect(name+"left", xpos, ypos, this.margin_size, this.outer_size);
         // draw top margin box
-        drawRect(name+"top", xpos , ypos + this.margin_size + this.inner_size, this.outer_size, this.margin_size);
+        svg += drawRect(name+"top", xpos , ypos + this.margin_size + this.inner_size, this.outer_size, this.margin_size);
         // draw the grid element box
-        drawRect(name, xpos + this.margin_size, ypos + this.margin_size, this.inner_size, this.inner_size);
+        svg += drawRect(name, xpos + this.margin_size, ypos + this.margin_size, this.inner_size, this.inner_size);
       }
       // draw right margin box
-      drawRect(name+"right", xpos + this.margin_size + this.inner_size, ypos, this.margin_size, this.outer_size);
+      svg += drawRect(name+"right", xpos + this.margin_size + this.inner_size, ypos, this.margin_size, this.outer_size);
     }
     for (x=0; x < this.xelem; x++){
-      drawRect(name+"bottom", xpos , ypos, this.outer_size, this.margin_size);
+      svg += drawRect(name+"bottom", xpos , ypos, this.outer_size, this.margin_size);
     }
-    svg = svg + "</svg>"
+    svg += "</svg>"
     return svg;
   }
 
