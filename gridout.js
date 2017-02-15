@@ -5,7 +5,7 @@
  */
 
 function drawRect(name, xelem, yelem, width, height){
-  return "<rect id=" + name + "x="+ x + " y="+ y  + " width="+ width + " height="+ height + "/>";
+  return "<rect id=" + name + "x="+ x + " y="+ y  + " width="+ width + " height="+ height + " fill='rgba(255,255,255,0)'/>";
 }
 
 /**
@@ -91,8 +91,13 @@ class gridout{
   *@param {int} ypos - in-element y position of the touched area in pixel
   */
   tap(xpos, ypos){
-    tapped = find(xpos, ypos);
+    // find which square was tapped
+    var tapped = find(xpos, ypos);
+    var square = document.getElementById(tapped);
     // get color index of current square
+    var current = this.colors.indexOf(square.getAttribute("fill"));
+    // set to next one
+    square.setAttribute("fill", this.colors((current+1)%(this.colors.length));
   }
 
 }
