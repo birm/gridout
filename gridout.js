@@ -48,9 +48,9 @@ class GridOut{
     // put in a square div
     var svg = "<svg style='width:" + size + ";height:" + size + ";'>"
     // determine sizes in percent
-    var outer_height = 100*(1./x) * size;
-    var inner_height = (1 - margin)* outer_height * size;
-    var offset = (margin * outer_height)/2 * size;
+    var outer_size = 100*(1./x) * size;
+    var inner_size = (1 - margin)* outer_size * size;
+    var margin_size = (margin * outer_size)/2 * size;
 
     for each in y{
       // get the baseline y position
@@ -60,15 +60,17 @@ class GridOut{
         var xpos = ;
         var name = "grid" + x + y;
         // draw left margin box
-        drawRect(name+"left", );
+        drawRect(name+"left", xpos, ypos, margin_size, outer_size);
         // draw top margin box
-        drawRect(name+"top");
+        drawRect(name+"top", xpos , ypos + margin_size + inner_size, outer_size, margin_size);
         // draw the grid element box
+        drawRect(name, xpos + margin_size, ypos+margin_size, inner_size, inner_size);
       }
       // draw right margin box
+      drawRect(name+"right", xpos + margin_size + inner_size, ypos, margin_size, outer_size);
     }
     for each in x{
-      // draw bottom margin box
+      drawRect(name+"bottom", xpos , ypos, outer_size, margin_size);
     }
     svg = svg + "</svg>"
     return svg;
