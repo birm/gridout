@@ -5,7 +5,7 @@
  */
 
 var test = require('tape');
-var GridOut = require("./GridOut");
+var GridOut = require("./gridout");
 
 test( 'initialization tests', function(t) {
     t.plan(1);

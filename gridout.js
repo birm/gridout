@@ -16,7 +16,7 @@ drawRect(name, x, y, width, height){
  *@param {float} margin - ratio of margin size to grid size (between 0 and 1)
  *@param {float} size - size of the object
  */
-class GridOut{
+class gridout{
   constructor (x, y, margin, size){
     this.x = x;
     this.y = y;
