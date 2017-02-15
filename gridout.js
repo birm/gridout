@@ -26,6 +26,11 @@ class gridout{
     this.outer_size = 100*(1./x) * size;
     this.inner_size = (1 - margin)* this.outer_size * size;
     this.margin_size = (margin * this.outer_size)/2 * size;
+    // pick colors to define regions
+    this.colors = [
+      "#8C1A6A", "#5AFF15", "#FF3562", "#9CB380", "#343A1A",
+      "#63372C", "#ACD8AA", "F4E950", "rgba(255,255,255,0)"]
+      ;
   }
 
   /**
@@ -79,6 +84,15 @@ class gridout{
     var xind = Math.floor(xpos/this.outer_size).toString();
     var yind = Math.floor(ypos/this.outer_size).toString();
     return "grid" + xind + yind;
+  }
+
+  /** Change square color on tap
+  *@param {int} xpos - in-element x position of the touched area in pixels
+  *@param {int} ypos - in-element y position of the touched area in pixel
+  */
+  tap(xpos, ypos){
+    tapped = find(xpos, ypos);
+    // get color index of current square
   }
 
 }
