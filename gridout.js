@@ -24,8 +24,8 @@ class gridout{
     this.size = size;
     // calcualted attributes
     this.outer_size = 100*(1./x) * size;
-    this.inner_size = (1 - margin)* outer_size * size;
-    this.margin_size = (margin * outer_size)/2 * size;
+    this.inner_size = (1 - margin)* this.outer_size * size;
+    this.margin_size = (margin * this.outer_size)/2 * size;
   }
 
   /**
