@@ -129,7 +129,7 @@ class gridout{
   drag(xpos, ypos, parent){
     var tapped = find(xpos, ypos);
     var square = document.getElementById(tapped);
-    var parent = document.getElementById(parent.substr(4);
+    var parent = document.getElementById(parent.substr(4));
     // set color
     var color = parent.getAttribute("fill");
     document.getElementById(square).setAttribute("fill", color);
