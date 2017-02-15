@@ -4,7 +4,7 @@
  *  @license Copyright 2017 Ryan Birmingham.
  */
 
-drawRect(name, x, y, width, height){
+function drawRect(name, x, y, width, height){
   return "<rect id=" + name + "x="+ x + " y="+ y  + " width="+ width + " height="+ height + "/>";
 }
 
@@ -40,7 +40,7 @@ class gridout{
 
   /** Generate a SVG from x, y, and margin sizes.
   */
-  function draw(){
+  draw(){
     var x = this.x;
     var y = this.y;
     var margin = this.margin;
