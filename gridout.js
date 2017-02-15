@@ -71,12 +71,14 @@ class gridout{
     return svg;
   }
 
-  /** Generate a SVG from x, y, and margin sizes.
+  /** Get the id of a box given its position.
   *@param {int} xpos - in-element x position of the touched area in pixels
   *@param {int} ypos - in-element y position of the touched area in pixel
   */
   find(xpos, ypos){
-    return null;
+    var xind = Math.floor(xpos/this.outer_size).toString();
+    var yind = Math.floor(ypos/this.outer_size).toString();
+    return "grid" + xind + yind;
   }
 
 }
