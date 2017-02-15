@@ -124,6 +124,9 @@ class gridout{
     // TODO ensure element snaps back when done
   }
 
+  //TODO set ondragover
+  // needs to event.preventDefault(), get event info, and call drag
+
 }
 
 module.exports = gridout;
