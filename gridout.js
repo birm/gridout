@@ -79,6 +79,7 @@ class gridout{
       svg += drawRect(name+"bottom", xpos , ypos, this.outer_size, this.margin_size);
     }
     svg += "</svg>"
+    this.svg = svg;
     return svg;
   }
 
