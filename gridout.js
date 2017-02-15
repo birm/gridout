@@ -41,8 +41,8 @@ class gridout{
   /** Generate a SVG from x, y, and margin sizes.
   */
   draw(){
-    var x = this.x;
-    var y = this.y;
+    var xelem = this.x;
+    var yelem = this.y;
     var margin = this.margin;
     var size = this.size;
     // put in a square div
@@ -52,12 +52,12 @@ class gridout{
     var inner_size = (1 - margin)* outer_size * size;
     var margin_size = (margin * outer_size)/2 * size;
 
-    for each in y{
+    for (y=0; y < yelem; y++){
       // get the baseline y position
-      var ypos =
-      for each in x{
+      var ypos = y * outer_size;
+      for (x=0; y < xelem; x++){
         // get the baseline x position
-        var xpos = ;
+        var xpos = x * outer_size; // MAY need to invert with outer_size*xelem - (x*outer_size)
         var name = "grid" + x + y;
         // draw left margin box
         drawRect(name+"left", xpos, ypos, margin_size, outer_size);
@@ -69,7 +69,7 @@ class gridout{
       // draw right margin box
       drawRect(name+"right", xpos + margin_size + inner_size, ypos, margin_size, outer_size);
     }
-    for each in x{
+    for (x=0; y < xelem; x++){
       drawRect(name+"bottom", xpos , ypos, outer_size, margin_size);
     }
     svg = svg + "</svg>"
