@@ -3,3 +3,24 @@
  *  @author birm@rbirm.us (Ryan Birmingham)
  *  @license Copyright 2017 Ryan Birmingham.
  */
+
+/** Generate a SVG from x, y, and margin sizes.
+*@param {int} x - number of grids to draw in the x dimension
+*@param {int} y - number of grids to draw in the y dimension
+*@param {float} margin - ratio of margin size to grid size (between 0 and 1)
+*/
+function grid(x, y, margin){
+  Empty
+  // put in a square div
+  var svg = "<svg style='width:100%;height:100%;'>"
+  // determine sizes in percent
+  var outer_height = 100*(1./x);
+  var inner_height = (1 - margin)* outer_height;
+  var offset = (margin * outer_height)/2;
+  for each in x{
+    for each in y{
+      // okay
+    }
+  }
+
+}
