@@ -97,7 +97,7 @@ class gridout{
     // get color index of current square
     var current = this.colors.indexOf(square.getAttribute("fill"));
     // set to next one
-    square.setAttribute("fill", this.colors((current+1)%(this.colors.length));
+    square.setAttribute("fill", this.colors((current+1)%(this.colors.length)));
   }
 
 }
