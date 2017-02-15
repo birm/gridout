@@ -3,8 +3,8 @@
  *  @author birm@rbirm.us (Ryan Birmingham)
  *  @license Copyright 2017 Ryan Birmingham.
  */
-function drawRect(name, xelem, yelem, width, height) {
-    return "<rect id=" + name + "x=" + x + " y=" + y + " width=" + width + " height=" + height + " fill='rgba(255,255,255,0)'/>";
+function drawRect(name, x, y, width, height) {
+    return "<rect id='" + name + "' x='" + x + "' y='" + y + "' width='" + width + "' height='" + height + "' fill='rgba(255,255,255,0)' style='stroke-width:3; stroke:rgb(0,0,0)'/>";
 }
 
 /**
@@ -33,9 +33,9 @@ class gridout {
         this.margin = margin;
         this.size = size;
         // calcualted attributes
-        this.outer_size = 100 * (1. / x) * size;
-        this.inner_size = (1 - margin) * this.outer_size * size;
-        this.margin_size = (margin * this.outer_size) / 2 * size;
+        this.outer_size = (1. / x) * size;
+        this.inner_size = (1 - margin) * this.outer_size;
+        this.margin_size = (margin * this.outer_size);
         // pick colors to define regions
         this.colors = [
             "#8C1A6A", "#5AFF15", "#FF3562", "#9CB380", "#343A1A",
@@ -49,12 +49,14 @@ class gridout {
      */
     draw() {
         // put in a square div
-        var svg = "<svg id='grid_workspace' style='width:" + size + ";height:" + size + ";'>"
-        for (y = 0; y < this.yelem; y++) {
+        var size_w_margin = parseInt(this.size, 10) + parseInt(this.margin_size, 10);
+        size_w_margin = size_w_margin.toString();
+        var svg = "<svg id='grid_workspace' style='width:" + size_w_margin  + ";height:" + size_w_margin + ";'>"
+        for (var y = 0; y < this.y; y++) {
             // get the baseline y position
             var ypos = y * this.outer_size;
 
-            for (x = 0; x < this.xelem; x++) {
+            for (var x = 0; x < this.x; x++) {
                 // get the baseline x position
                 var xpos = x * this.outer_size; // MAY need to invert with outer_size*xelem - (x*outer_size)
                 var name = "grid" + x + "x" + y;
@@ -63,7 +65,7 @@ class gridout {
                 svg += drawRect(name + "left", xpos, ypos, this.margin_size, this.outer_size);
 
                 // draw top margin box
-                svg += drawRect(name + "top", xpos, ypos + this.margin_size + this.inner_size, this.outer_size, this.margin_size);
+                svg += drawRect(name + "top", xpos, ypos, this.outer_size, this.margin_size);
 
                 // draw the grid element box
                 svg += drawRect(name, xpos + this.margin_size, ypos + this.margin_size, this.inner_size, this.inner_size);
@@ -74,7 +76,10 @@ class gridout {
             // draw right margin box
             svg += drawRect(name + "right", xpos + this.margin_size + this.inner_size, ypos, this.margin_size, this.outer_size);
         }
-        for (x = 0; x < this.xelem; x++) {
+        // draw the bottom
+        for (x = 0; x < this.x; x++) {
+            var xpos = x * this.outer_size;
+            var ypos = this.y * this.outer_size;
             svg += drawRect(name + "bottom", xpos, ypos, this.outer_size, this.margin_size);
         }
         svg += "</svg>"
@@ -93,7 +98,9 @@ class gridout {
         style += xpos + "; top: "
         style += ypos + "; height: "
         style += this.outer_size + " ; width: " + this.outer_size + ";";
-        document.createElement("drag" + tapped).setAttribute("style", style).setAttribute("draggable", true);
+        var drag = document.createElement("drag" + name)
+        drag.setAttribute("style", style)
+        drag.setAttribute("draggable", true);
     }
 
     /** Get the id of a box given its position.
