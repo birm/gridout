@@ -1,0 +1,9 @@
+{
+    "gridout": {
+        "xelem": 5,
+        "yelem": 5,
+        "margin": 0.1,
+        "grid": "<svg>...<rect></rect> ...</svg>",
+        "size": 300
+    }
+}
