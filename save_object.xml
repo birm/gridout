@@ -1,6 +1,8 @@
 <!--A sample gridout save object-->
 <textout>
   <title>The title</title>
+  <xlen>#</xlen>
+  <ylen>#</ylen>
   <margin>#</margin>
   <grid> (SVG object)</grid>
 </textout>
