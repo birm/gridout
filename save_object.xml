@@ -4,5 +4,6 @@
   <xlen>#</xlen>
   <ylen>#</ylen>
   <margin>#</margin>
-  <grid> (SVG object)</grid>
+  <grid>(SVG object)</grid>
+  <size>#</size>
 </textout>
