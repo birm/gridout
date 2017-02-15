@@ -4,6 +4,9 @@
  *  @license Copyright 2017 Ryan Birmingham.
  */
 
+drawRect(name, x, y, width, height){
+  return "<rect id=" + name + "x="+ x + " y="+ y  + " width="+ width + " height="+ height + "/>";
+}
 
 /**
  *A GridOut Object
@@ -50,12 +53,17 @@ class GridOut{
     var offset = (margin * outer_height)/2 * size;
 
     for each in y{
+      // get the baseline y position
+      var ypos =
       for each in x{
+        // get the baseline x position
+        var xpos = ;
         var name = "grid" + x + y;
         // draw left margin box
-        name+"left";
+        drawRect(name+"left", );
         // draw top margin box
-        name+"top";
+        drawRect(name+"top");
+        // draw the grid element box
       }
       // draw right margin box
     }
