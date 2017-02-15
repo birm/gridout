@@ -4,7 +4,7 @@
   "description": "grid layout design herlper tool",
   "main": "gridout.js",
   "scripts": {
-    "test": "npm test_gridout.js"
+    "test": "node test_gridout.js"
   },
   "repository": {
     "type": "git",
