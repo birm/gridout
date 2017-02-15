@@ -140,7 +140,7 @@ class gridout{
   /** Color a square when dragged over
   *@param {object} event - passed event information
   */
-  @static
+  static
   dragover(event){
     event.preventDefault();
     // TODO MAy need to contextualize clientX and clientY for svg coords
@@ -150,7 +150,7 @@ class gridout{
   /** Color  margins when a drag ends
   *@param {object} event - passed event information
   */
-  @static
+  static
   dragend(event){
     return null;
     //this.color_margins();
