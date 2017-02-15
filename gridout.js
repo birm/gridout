@@ -116,7 +116,7 @@ class gridout{
   drag(xpos, ypos, parent){
     var tapped = find(xpos, ypos);
     var square = document.getElementById(tapped);
-    var parent = document.getElementById(parent[4:]);
+    var parent = document.getElementById(parent.substr(4);
     // set color
     var color = parent.getAttribute("fill");
     document.getElementById(square).setAttribute("fill", color);
@@ -130,9 +130,16 @@ class gridout{
   @static dragover(event){
     event.preventDefault();
     // TODO MAy need to contextualize clientX and clientY for svg coords
-    drag(event.clientX, event.clientY, event.currentTarget);
+    this.drag(event.clientX, event.clientY, event.currentTarget);
   }
 
+  /** Color  margins when a drag ends
+  *@param {int} event - passed event information
+  */
+  @static dragend(event){
+    event.preventDefault();
+    //this.color_margins();
+  }
 
 }
 
