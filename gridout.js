@@ -98,6 +98,13 @@ class gridout{
     var current = this.colors.indexOf(square.getAttribute("fill"));
     // set to next one
     square.setAttribute("fill", this.colors((current+1)%(this.colors.length)));
+
+    // place an invisible draggable element there
+    var style = "position:relative; left: "
+    style+= square.getAttribute(x) + "; top: "
+    style+=  square.getAttribute(y) +  "; height: "
+    style+=  this.outer_size + " ; width: " + this.outer_size + ";";
+    document.createElement("drag"+tapped).setAttribute("style", style).setAttribute("draggable", true);
   }
 
 }
