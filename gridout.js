@@ -192,3 +192,5 @@ class gridout {
     }
 
 }
+
+module.exports = gridout;
