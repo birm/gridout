@@ -73,6 +73,7 @@ class gridout {
             svg += drawRect(name + "bottom", xpos, ypos, this.outer_size, this.margin_size);
         }
         svg += "</svg>"
+        document.body.insertAdjacentHTML('afterbegin', svg);
         return svg;
     }
 
@@ -185,10 +186,9 @@ class gridout {
      *@param {object[]} loaded - the object to load
      */
     static load(loaded) {
-        go = new this(loaded['x'], loaded['y'], loaded['margin'], loaded['size'])
-        go.draw()
-        document.getElementById('grid_workspace').outerHTML = loaded['grid'];
-        return go;
+        var gridout_obj = new this(loaded['x'], loaded['y'], loaded['margin'], loaded['size']);
+        document.body.insertAdjacentHTML('afterbegin', loaded['grid']);
+        return gridout_obj;
     }
 
 }

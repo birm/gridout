@@ -31,6 +31,7 @@
   },
   "devDependencies": {
     "jsdoc": "^3.4.3",
+    "jsdom": "^9.11.0",
     "tape": "^4.6.3"
   }
 }
