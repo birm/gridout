@@ -158,7 +158,8 @@ class gridout {
             "gridout": {
                 "xelem": this.x,
                 "yelem": this.y,
-                "margin": this.margin "grid": document.getElementById('grid_workspace').outerHTML,
+                "margin": this.margin,
+                "grid": document.getElementById('grid_workspace').outerHTML,
                 "size": this.size
             }
         }
