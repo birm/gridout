@@ -50,7 +50,7 @@ class gridout{
   */
   draw(){
     // put in a square div
-    var svg = "<svg style='width:" + size + ";height:" + size + ";'>"
+    var svg = "<svg id='grid_workspace' style='width:" + size + ";height:" + size + ";'>"
     for (y=0; y < this.yelem; y++){
       // get the baseline y position
       var ypos = y * this.outer_size;
@@ -79,7 +79,6 @@ class gridout{
       svg += drawRect(name+"bottom", xpos , ypos, this.outer_size, this.margin_size);
     }
     svg += "</svg>"
-    this.svg = svg;
     return svg;
   }
 
@@ -137,6 +136,20 @@ class gridout{
 
     // TODO ensure element snaps back when done
   }
+  /** Serialize the object as an xml
+  */
+  get_xml(){
+    // get svg
+    var grid = document.getElementById('grid_workspace').outerHTML;
+    // make xml
+    xmlout = "<gridout>";
+    xmlout +="  <xelem>" + this.x + "</xelem>";
+    xmlout +="  <yelem>" + this.x + "</yelem>";
+    xmlout +="  <margin>" + this.margin + "</margin>";
+    xmlout +="  <grid>" + grid + "</grid>";
+    xmlout +="</gridout>"
+    return xmlout;
+  }
 
   /** Color a square when dragged over
   *@param {object} event - passed event information
@@ -156,6 +169,8 @@ class gridout{
     return null;
     //this.color_margins();
   }
+
+
 
 }
 
