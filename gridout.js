@@ -80,8 +80,8 @@ class gridout{
   *@param {int} xpos - in-element x position of the touched area in pixels
   *@param {int} ypos - in-element y position of the touched area in pixel
   */
-  function where(xpos, ypos){
-    Empty
+  function find(xpos, ypos){
+    return null;
   }
 
 }
