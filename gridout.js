@@ -92,6 +92,7 @@ class gridout {
         var drag = document.createElement("drag" + name)
         drag.setAttribute("style", style)
         drag.setAttribute("draggable", true);
+        drag.setAttribute("onClick", "gridout.tap('"+ name + "');")
         document.getElementById("dragarea").appendChild(drag);
     }
 
@@ -109,14 +110,18 @@ class gridout {
      *@param {int} xpos - in-element x position of the touched area in pixels
      *@param {int} ypos - in-element y position of the touched area in pixel
      */
-    tap(xpos, ypos) {
+    static tap(tapped) {
+      // pick colors to define regions
+        var colors = [
+          "#8C1A6A", "#5AFF15", "#FF3562", "#9CB380", "#343A1A",
+          "#63372C", "#ACD8AA", "F4E950", "rgba(255,255,255,0)"
+        ];
         // find which square was tapped
-        var tapped = find(xpos, ypos);
         var square = document.getElementById(tapped);
         // get color index of current square
-        var current = this.colors.indexOf(square.getAttribute("fill"));
+        var current = colors.indexOf(square.getAttribute("fill"));
         // set to next one
-        square.setAttribute("fill", this.colors((current + 1) % (this.colors.length)));
+        square.setAttribute("fill", colors[(current + 1) % (colors.length)]);
     }
 
     /** Change square when dragged over
