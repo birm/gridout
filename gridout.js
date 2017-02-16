@@ -96,6 +96,9 @@ class gridout {
         drag.setAttribute("onClick", "gridout.tap('" + name + "');");
         drag.setAttribute("onDragStart", "gridout.dragstart(event);");
         drag.setAttribute("onDragEnter", "gridout.dragover(event);");
+        drag.addEventListener("touchmove", function(e){
+            gridout.touchmove(e)
+        }, false);
         document.getElementById("dragarea").appendChild(drag);
     }
 
@@ -176,6 +179,19 @@ class gridout {
         console.log(color);
         document.getElementById(event.currentTarget.id.substr(4)).setAttribute("fill", color);
     }
+
+    // touch events too
+    /** Save color to touch event
+     *@param {object} event - passed event information
+     */
+    static touchmove(event) {
+        console.log(event.targetTouches.item(0).pageX+"x"+event.targetTouches.item(0).pageY)
+        var color = document.getElementById(event.targetTouches.item(0).target.id.substr(4)).getAttribute("fill").toString();
+        document.getElementById('hiddencolor').setAttribute("class", color);
+        var over = document.elementFromPoint(event.targetTouches.item(0).pageX, event.targetTouches.item(0).pageY)
+        document.getElementById(over.id.substr(4)).setAttribute("fill", color);
+    }
+
 
     /** Color  margins when a drag ends
      *@param {object} event - passed event information
