@@ -89,11 +89,13 @@ class gridout {
         style += xpos + "; top: "
         style += ypos + "; height: "
         style += this.outer_size + " ; width: " + this.outer_size + ";";
-        var drag = document.createElement("drag" + name)
+        var drag = document.createElement("div")
+        drag.id = ("drag" + name)
         drag.setAttribute("style", style)
         drag.setAttribute("draggable", true);
         drag.setAttribute("onClick", "gridout.tap('"+ name + "');");
-        drag.setAttribute("onDragEnter", "gridout.tap('"+ name + "');");
+        drag.setAttribute("onDragStart", "gridout.dragstart(event);");
+        drag.setAttribute("onDragEnter", "gridout.dragover(event);");
         document.getElementById("dragarea").appendChild(drag);
     }
 
@@ -170,14 +172,23 @@ class gridout {
     };
 
 
+    /** Save color to drag event
+     *@param {object} event - passed event information
+    */
+    static dragstart(event){
+      var color = document.getElementById(event.currentTarget.id.substr(4)).getAttribute("fill").toString();
+      document.getElementById('hiddencolor').setAttribute("class", color);
+      event.dataTransfer.setData("text/plain", color);
+      event.effectAllowed = "copy";
+    }
 
     /** Color a square when dragged over
      *@param {object} event - passed event information
      */
     static dragover(event) {
         event.preventDefault();
-        // TODO MAy need to contextualize clientX and clientY for svg coords
-        var color = document.getElementById(event.target.id.substr(4)).getAttribute("fill");
+        var color = document.getElementById('hiddencolor').getAttribute("class");
+        console.log(color);
         document.getElementById(event.currentTarget.id.substr(4)).setAttribute("fill", color);
     }
 
@@ -203,7 +214,6 @@ class gridout {
       var margin = margin * 0.02;
       var a = new gridout(gridx, margin, len);
       a.draw();
-      return "success"
     }
 
     /** Load from a JSON object (get_json generates this)
