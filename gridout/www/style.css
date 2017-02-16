@@ -48,6 +48,12 @@ body {
   font-size:18px;
 }
 
+.input_bars{
+  border:1px solid #cccccc;
+  width: 50%;
+  height: 10%;
+}
+
 /* gridout specific */
 
 /* Identity bar color */
