@@ -4,6 +4,7 @@
     <description>
         A sample Apache Cordova application that responds to the deviceready event.
     </description>
+    <icon src='res/logo.png'/>
     <author email="birm@rbirm.us" href="http://rbirm.us/">
         BIRM
     </author>
