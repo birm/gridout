@@ -1,6 +1,6 @@
 {
   "name": "gridout",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "grid layout design herlper tool",
   "main": "gridout.js",
   "scripts": {
@@ -25,10 +25,7 @@
   "bugs": {
     "url": "https://github.com/birm/gridout/issues"
   },
-  "homepage": "https://github.com/birm/gridout#readme",
-  "dependencies": {
-    "angular": "^1.6.2"
-  },
+  "homepage": "http://www.rbirm.us/gridout/",
   "devDependencies": {
     "jsdoc": "^3.4.3",
     "jsdom": "^9.11.0",
