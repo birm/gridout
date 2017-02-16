@@ -73,7 +73,8 @@ class gridout {
             svg += drawRect(name + "bottom", xpos, ypos, this.outer_size, this.margin_size);
         }
         svg += "</svg>"
-        document.body.insertAdjacentHTML('afterbegin', svg);
+        var gridspace = document.getElementById('gridarea');
+        gridspace.innerHTML = svg;
         return svg;
     }
 
@@ -136,7 +137,7 @@ class gridout {
     /** Serialize the object as an xml */
     get_xml() {
         // get svg
-        var grid = document.getElementById('grid_workspace').outerHTML;
+        var grid = document.getElementById('gridarea').outerHTML;
         // make xml
         xmlout = "<gridout>";
         xmlout += "  <xelem>" + this.x + "</xelem>";
@@ -155,7 +156,7 @@ class gridout {
                 "xelem": this.x,
                 "yelem": this.y,
                 "margin": this.margin,
-                "grid": document.getElementById('grid_workspace').outerHTML,
+                "grid": document.getElementById('gridarea').innerHTML,
                 "size": this.size
             }
         }
@@ -187,7 +188,8 @@ class gridout {
      */
     static load(loaded) {
         var gridout_obj = new this(loaded['x'], loaded['y'], loaded['margin'], loaded['size']);
-        document.body.insertAdjacentHTML('afterbegin', loaded['grid']);
+        var gridspace = document.getElementById('gridarea');
+        gridspace.innerHTML = loaded['grid'];
         return gridout_obj;
     }
 

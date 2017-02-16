@@ -39,11 +39,15 @@ test( 'unit tests', function(t) {
     t.plan(2);
 
     t.doesNotThrow( function() {
+      document.write("<body><div id='gridarea'></div></body>");
+
       var a = new gridout(5,5,0.1,200);
       a.draw()
     }, '*', "GridOut() svg drawing");
 
     t.doesNotThrow( function() {
+      document.write("<body><div id='gridarea'></div></body>");
+
       var a = new gridout(5,5,0.1,200);
       a.draw()
       var b = gridout.load(a.get_json());
