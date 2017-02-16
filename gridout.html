@@ -1,10 +1,12 @@
 <html>
   <head>
     <link rel="stylesheet" href="style.css">
+    <script src="gridout.js">
+    <script>a = new gridout(5,5,0.1,200);</script>
     <!--The toolbar-->
     <div id="topbar">
       <div class="container">
-        <a href="#">SAVE</a>
+        <button onclick="new gridout(5,5,0.1,200).draw()">DRAW</button>
       </div>
     </div>
   </head>
@@ -26,4 +28,5 @@
       </div>
     </div>
   </footer>
+
 </html>
