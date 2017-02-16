@@ -85,13 +85,14 @@ class gridout {
      *@param {float} name - name of rect to place on
      */
     create_dragable(xpos, ypos, name) {
-        var style = "position:relative; left: "
+        var style = "position:absolute; left: "
         style += xpos + "; top: "
         style += ypos + "; height: "
         style += this.outer_size + " ; width: " + this.outer_size + ";";
         var drag = document.createElement("drag" + name)
         drag.setAttribute("style", style)
         drag.setAttribute("draggable", true);
+        document.getElementById("dragarea").appendChild(drag);
     }
 
     /** Get the id of a box given its position.
