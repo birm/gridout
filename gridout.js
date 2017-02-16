@@ -93,7 +93,7 @@ class gridout {
         drag.id = ("drag" + name)
         drag.setAttribute("style", style)
         drag.setAttribute("draggable", true);
-        drag.setAttribute("onClick", "gridout.tap('"+ name + "');");
+        drag.setAttribute("onClick", "gridout.tap('" + name + "');");
         drag.setAttribute("onDragStart", "gridout.dragstart(event);");
         drag.setAttribute("onDragEnter", "gridout.dragover(event);");
         document.getElementById("dragarea").appendChild(drag);
@@ -114,10 +114,10 @@ class gridout {
      *@param {int} ypos - in-element y position of the touched area in pixel
      */
     static tap(tapped) {
-      // pick colors to define regions
+        // pick colors to define regions
         var colors = [
-          "#8C1A6A", "#5AFF15", "#FF3562", "#9CB380", "#343A1A",
-          "#63372C", "#ACD8AA", "F4E950", "rgba(255,255,255,0)"
+            "#8C1A6A", "#5AFF15", "#FF3562", "#9CB380", "#343A1A",
+            "#63372C", "#ACD8AA", "F4E950", "rgba(255,255,255,0)"
         ];
         // find which square was tapped
         var square = document.getElementById(tapped);
@@ -127,21 +127,6 @@ class gridout {
         square.setAttribute("fill", colors[(current + 1) % (colors.length)]);
     }
 
-    /** Change square when dragged over
-     *@param {int} xpos - in-element x position of the touched area in pixels
-     *@param {int} ypos - in-element y position of the touched area in pixels
-     *@param {int} parent - the square of the drag start
-     */
-    drag(xpos, ypos, parent) {
-        var tapped = find(xpos, ypos);
-        var square = document.getElementById(tapped);
-        var parent = document.getElementById(parent.substr(4));
-        // set color
-        var color = parent.getAttribute("fill");
-        document.getElementById(square).setAttribute("fill", color);
-
-        // TODO ensure element snaps back when done
-    }
     /** Serialize the object as an xml */
     get_xml() {
         // get svg
@@ -174,12 +159,12 @@ class gridout {
 
     /** Save color to drag event
      *@param {object} event - passed event information
-    */
-    static dragstart(event){
-      var color = document.getElementById(event.currentTarget.id.substr(4)).getAttribute("fill").toString();
-      document.getElementById('hiddencolor').setAttribute("class", color);
-      event.dataTransfer.setData("text/plain", color);
-      event.effectAllowed = "copy";
+     */
+    static dragstart(event) {
+        var color = document.getElementById(event.currentTarget.id.substr(4)).getAttribute("fill").toString();
+        document.getElementById('hiddencolor').setAttribute("class", color);
+        event.dataTransfer.setData("text/plain", color);
+        event.effectAllowed = "copy";
     }
 
     /** Color a square when dragged over
@@ -200,20 +185,20 @@ class gridout {
         //this.color_margins();
     }
 
-    static draw_here(){
-      var width = window.innerWidth
-      || document.documentElement.clientWidth
-      || document.body.clientWidth;
-      var height = window.innerHeight
-      || document.documentElement.clientHeight
-      || document.body.clientHeight;
-      var len = Math.min(width, (height*0.9)-150);
-      var gridx = document.getElementById('grid_num_x').value;
-      // margin is between 0 and 10
-      var margin = document.getElementById('margin').value;
-      var margin = margin * 0.02;
-      var a = new gridout(gridx, margin, len);
-      a.draw();
+    static draw_here() {
+        var width = window.innerWidth ||
+            document.documentElement.clientWidth ||
+            document.body.clientWidth;
+        var height = window.innerHeight ||
+            document.documentElement.clientHeight ||
+            document.body.clientHeight;
+        var len = Math.min(width * 0.8, (height * 0.8) - 150);
+        var gridx = document.getElementById('grid_num_x').value;
+        // margin is between 0 and 10
+        var margin = document.getElementById('margin').value;
+        var margin = margin * 0.02;
+        var a = new gridout(gridx, margin, len);
+        a.draw();
     }
 
     /** Load from a JSON object (get_json generates this)
