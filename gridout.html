@@ -2,10 +2,18 @@
   <head>
     <link rel="stylesheet" href="style.css">
     <script src="gridout.js"></script>
-    <script>a = new gridout(5,5,0.1,200);</script>
+    <script>var width = window.innerWidth
+    || document.documentElement.clientWidth
+    || document.body.clientWidth;
+    var height = window.innerHeight
+    || document.documentElement.clientHeight
+    || document.body.clientHeight;
+    var len = Math.min(width, height)</script>
+    <script>var a = new gridout(5,5,0.1,len*0.8);</script>
     <!--The toolbar-->
     <div id="topbar">
       <div class="container">
+        Length in Grids:<input type="number" name="len" min="1" max="10" value="5">
         <button onclick="a.draw()">DRAW</button>
       </div>
     </div>
