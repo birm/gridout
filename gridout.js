@@ -92,7 +92,8 @@ class gridout {
         var drag = document.createElement("drag" + name)
         drag.setAttribute("style", style)
         drag.setAttribute("draggable", true);
-        drag.setAttribute("onClick", "gridout.tap('"+ name + "');")
+        drag.setAttribute("onClick", "gridout.tap('"+ name + "');");
+        drag.setAttribute("onDragEnter", "gridout.tap('"+ name + "');");
         document.getElementById("dragarea").appendChild(drag);
     }
 
@@ -176,7 +177,8 @@ class gridout {
     static dragover(event) {
         event.preventDefault();
         // TODO MAy need to contextualize clientX and clientY for svg coords
-        this.drag(event.clientX, event.clientY, event.currentTarget);
+        var color = document.getElementById(event.target.id.substr(4)).getAttribute("fill");
+        document.getElementById(event.currentTarget.id.substr(4)).setAttribute("fill", color);
     }
 
     /** Color  margins when a drag ends
