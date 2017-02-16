@@ -190,7 +190,10 @@ class gridout {
       || document.body.clientHeight;
       var len = Math.min(width, (height*0.9)-150);
       var gridx = document.getElementById('grid_num_x').value;
-      var a = new gridout(gridx, 0.1, len);
+      // margin is between 0 and 10
+      var margin = document.getElementById('margin').value;
+      var margin = margin * 0.02;
+      var a = new gridout(gridx, margin, len);
       a.draw();
       return "success"
     }
