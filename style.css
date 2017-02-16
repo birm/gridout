@@ -2,8 +2,8 @@
 html {
   min-width: 150px;
   max-width: 500px;
-  min-height: 500px;
-  max-height: 800px;
+  min-height: 300px;
+  max-height: 400px;
 }
 
 body {
@@ -44,6 +44,10 @@ body {
 }
 
 /* gridout specific */
+
+.toolbar{
+  font-size:24px;
+}
 
 /* Identity bar color */
 #bottombar {
