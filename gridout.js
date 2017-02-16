@@ -12,19 +12,18 @@ function drawRect(name, x, y, width, height) {
  *Each grid cell has a top and left margin, and has an indirect bottom and right margin in the left and top margins of other squares.
  *The bottom row contains additional bottom margins, and each row has an additional right margin, to complete the grid.
  *@constructor
- *@param {int} xelem - number of grids to draw in the x dimension
- *@param {int} yelem - number of grids to draw in the y dimension
+ *@param {int} dimension - number of grids to draw in the x and y dimensions
  *@param {float} margin - ratio of margin size to grid size (between 0 and 1)
  *@param {float} size - size of the object
  */
 class gridout {
-    constructor(x, y, margin, size) {
-        this.x = x;
-        this.y = y;
+    constructor(dimension, margin, size) {
+        this.x = dimension;
+        this.y = dimension;
         this.margin = margin;
         this.size = size;
         // calcualted attributes
-        this.outer_size = (1. / x) * size;
+        this.outer_size = (1. / dimension) * size;
         this.inner_size = (1 - margin) * this.outer_size;
         this.margin_size = (margin * this.outer_size);
         // pick colors to define regions
@@ -36,7 +35,7 @@ class gridout {
 
 
 
-    /** Generate a SVG from x, y, and margin sizes. */
+    /** Generate a SVG from dimension, and margin sizes. */
     draw() {
         // put in a square div
         var size_w_margin = parseInt(this.size, 10) + parseInt(this.margin_size, 10);
@@ -180,6 +179,20 @@ class gridout {
     static dragend(event) {
         return null;
         //this.color_margins();
+    }
+
+    static draw_here(){
+      var width = window.innerWidth
+      || document.documentElement.clientWidth
+      || document.body.clientWidth;
+      var height = window.innerHeight
+      || document.documentElement.clientHeight
+      || document.body.clientHeight;
+      var len = Math.min(width, (height*0.9)-150);
+      var gridx = document.getElementById('grid_num_x').value;
+      var a = new gridout(gridx, 0.1, len);
+      a.draw();
+      return "success"
     }
 
     /** Load from a JSON object (get_json generates this)
