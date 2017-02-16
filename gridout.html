@@ -36,4 +36,27 @@
         </div>
     </div>
 </footer>
+<script>
+// thanks to terry.blargh
+document.addEventListener('touchstart', onDocumentTouchMove, false);
+document.addEventListener('touchmove', onDocumentTouchMove, false);
+
+function onDocumentTouchStart(event)
+{
+    event.preventDefault(); //Allows firing of other events asap
+    for(var i = 0; i < event.touches.length; i++)
+    {
+        clickX[i] = event.touches[i].pageX;
+        clickY[i] = event.touches[i].pageY;
+    }
+}
+function onDocumentTouchMove(event)
+{
+    event.preventDefault(); //Prevents Scrolling
+    for(var i = 0; i < event.touches.length; i++)
+    {
+        clickX[i] = event.touches[i].pageX;
+        clickY[i] = event.touches[i].pageY;
+    }
+}
 </html>
