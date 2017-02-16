@@ -4,14 +4,13 @@
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <link rel="stylesheet" href="style.css">
     <script src="gridout.js"></script>
-    <script>
-    </script>
+
     <!--The toolbar-->
     <div id="topbar">
         <div class="container">
-            <label class="toolbar" style="color:white;">Size: <input type="number" class="toolbar" name="grid_num_x" id="grid_num_x" min="1" max="15" value="5"></label>
-            <label class="toolbar" style="color:white;">  Margins: <input type="number" class="toolbar" name="margin" id="margin" min="0" max="10" value="5"></label>
-            <button class="toolbar" onclick="gridout.draw_here()">DRAW</button>
+            <labe style="color:white;">Size: <input type="number" class="bars" name="grid_num_x" id="grid_num_x" min="1" max="15" value="5"></label>
+            <label style="color:white;">  Margins: <input type="number" class="bars" name="margin" id="margin" min="0" max="10" value="5"></label>
+            <button class="bars" onclick="gridout.draw_here()">DRAW</button>
         </div>
     </div>
 </head>
@@ -33,9 +32,31 @@
     <!--The identity bar-->
     <div id="bottombar">
         <div class="container">
-            <p>Rbirm.us --- gridout</p>
+            <p class="bars">Rbirm.us --- gridout</p>
         </div>
     </div>
 </footer>
+<script>
+// thanks to terry.blargh
+document.addEventListener('touchstart', onDocumentTouchMove, false);
+document.addEventListener('touchmove', onDocumentTouchMove, false);
 
+function onDocumentTouchStart(event)
+{
+    event.preventDefault(); //Allows firing of other events asap
+    for(var i = 0; i < event.touches.length; i++)
+    {
+        clickX[i] = event.touches[i].pageX;
+        clickY[i] = event.touches[i].pageY;
+    }
+}
+function onDocumentTouchMove(event)
+{
+    event.preventDefault(); //Prevents Scrolling
+    for(var i = 0; i < event.touches.length; i++)
+    {
+        clickX[i] = event.touches[i].pageX;
+        clickY[i] = event.touches[i].pageY;
+    }
+}
 </html>

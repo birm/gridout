@@ -9,7 +9,7 @@
     </feature>
     <name>gridout</name>
     <description>
-        A sample Apache Cordova application that responds to the deviceready event.
+        a grid layout design tool
     </description>
     <icon src="res/logo.png" />
     <author email="birm@rbirm.us" href="http://rbirm.us/">
@@ -25,4 +25,5 @@
     <allow-intent href="geo:*" />
     <allow-intent href="market:*" />
     <preference name="loglevel" value="DEBUG" />
+    <preference name="DisallowOverscroll" value="true" />
 </widget>
