@@ -85,13 +85,18 @@ class gridout {
      *@param {float} name - name of rect to place on
      */
     create_dragable(xpos, ypos, name) {
-        var style = "position:relative; left: "
+        var style = "position:absolute; left: "
         style += xpos + "; top: "
         style += ypos + "; height: "
         style += this.outer_size + " ; width: " + this.outer_size + ";";
-        var drag = document.createElement("drag" + name)
+        var drag = document.createElement("div")
+        drag.id = ("drag" + name)
         drag.setAttribute("style", style)
         drag.setAttribute("draggable", true);
+        drag.setAttribute("onClick", "gridout.tap('"+ name + "');");
+        drag.setAttribute("onDragStart", "gridout.dragstart(event);");
+        drag.setAttribute("onDragEnter", "gridout.dragover(event);");
+        document.getElementById("dragarea").appendChild(drag);
     }
 
     /** Get the id of a box given its position.
@@ -108,14 +113,18 @@ class gridout {
      *@param {int} xpos - in-element x position of the touched area in pixels
      *@param {int} ypos - in-element y position of the touched area in pixel
      */
-    tap(xpos, ypos) {
+    static tap(tapped) {
+      // pick colors to define regions
+        var colors = [
+          "#8C1A6A", "#5AFF15", "#FF3562", "#9CB380", "#343A1A",
+          "#63372C", "#ACD8AA", "F4E950", "rgba(255,255,255,0)"
+        ];
         // find which square was tapped
-        var tapped = find(xpos, ypos);
         var square = document.getElementById(tapped);
         // get color index of current square
-        var current = this.colors.indexOf(square.getAttribute("fill"));
+        var current = colors.indexOf(square.getAttribute("fill"));
         // set to next one
-        square.setAttribute("fill", this.colors((current + 1) % (this.colors.length)));
+        square.setAttribute("fill", colors[(current + 1) % (colors.length)]);
     }
 
     /** Change square when dragged over
@@ -163,14 +172,24 @@ class gridout {
     };
 
 
+    /** Save color to drag event
+     *@param {object} event - passed event information
+    */
+    static dragstart(event){
+      var color = document.getElementById(event.currentTarget.id.substr(4)).getAttribute("fill").toString();
+      document.getElementById('hiddencolor').setAttribute("class", color);
+      event.dataTransfer.setData("text/plain", color);
+      event.effectAllowed = "copy";
+    }
 
     /** Color a square when dragged over
      *@param {object} event - passed event information
      */
     static dragover(event) {
         event.preventDefault();
-        // TODO MAy need to contextualize clientX and clientY for svg coords
-        this.drag(event.clientX, event.clientY, event.currentTarget);
+        var color = document.getElementById('hiddencolor').getAttribute("class");
+        console.log(color);
+        document.getElementById(event.currentTarget.id.substr(4)).setAttribute("fill", color);
     }
 
     /** Color  margins when a drag ends
@@ -195,7 +214,6 @@ class gridout {
       var margin = margin * 0.02;
       var a = new gridout(gridx, margin, len);
       a.draw();
-      return "success"
     }
 
     /** Load from a JSON object (get_json generates this)

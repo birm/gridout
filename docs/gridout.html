@@ -46,7 +46,7 @@ The bottom row contains additional bottom margins, and each row has an additiona
     <h2>Constructor</h2>
     
 
-    <h4 class="name" id="gridout"><span class="type-signature"></span>new gridout<span class="signature">(xelem, yelem, margin, size)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="gridout"><span class="type-signature"></span>new gridout<span class="signature">(dimension, margin, size)</span><span class="type-signature"></span></h4>
 
     
 
@@ -85,7 +85,7 @@ The bottom row contains additional bottom margins, and each row has an additiona
 
         <tr>
             
-                <td class="name"><code>xelem</code></td>
+                <td class="name"><code>dimension</code></td>
             
 
             <td class="type">
@@ -101,30 +101,7 @@ The bottom row contains additional bottom margins, and each row has an additiona
 
             
 
-            <td class="description last">number of grids to draw in the x dimension</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>yelem</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">int</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">number of grids to draw in the y dimension</td>
+            <td class="description last">number of grids to draw in the x and y dimensions</td>
         </tr>
 
     
@@ -211,7 +188,7 @@ The bottom row contains additional bottom margins, and each row has an additiona
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="gridout.js.html">gridout.js</a>, <a href="gridout.js.html#line20">line 20</a>
+        <a href="gridout.js.html">gridout.js</a>, <a href="gridout.js.html#line19">line 19</a>
     </li></ul></dd>
     
 
@@ -370,7 +347,7 @@ The bottom row contains additional bottom margins, and each row has an additiona
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="gridout.js.html">gridout.js</a>, <a href="gridout.js.html#line178">line 178</a>
+        <a href="gridout.js.html">gridout.js</a>, <a href="gridout.js.html#line179">line 179</a>
     </li></ul></dd>
     
 
@@ -501,7 +478,7 @@ The bottom row contains additional bottom margins, and each row has an additiona
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="gridout.js.html">gridout.js</a>, <a href="gridout.js.html#line169">line 169</a>
+        <a href="gridout.js.html">gridout.js</a>, <a href="gridout.js.html#line170">line 170</a>
     </li></ul></dd>
     
 
@@ -678,7 +655,7 @@ The bottom row contains additional bottom margins, and each row has an additiona
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="gridout.js.html">gridout.js</a>, <a href="gridout.js.html#line125">line 125</a>
+        <a href="gridout.js.html">gridout.js</a>, <a href="gridout.js.html#line126">line 126</a>
     </li></ul></dd>
     
 
@@ -716,7 +693,7 @@ The bottom row contains additional bottom margins, and each row has an additiona
 
 
 <div class="description">
-    Generate a SVG from x, y, and margin sizes.
+    Generate a SVG from dimension, and margin sizes.
 </div>
 
 
@@ -760,7 +737,7 @@ The bottom row contains additional bottom margins, and each row has an additiona
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="gridout.js.html">gridout.js</a>, <a href="gridout.js.html#line40">line 40</a>
+        <a href="gridout.js.html">gridout.js</a>, <a href="gridout.js.html#line39">line 39</a>
     </li></ul></dd>
     
 
@@ -914,7 +891,7 @@ The bottom row contains additional bottom margins, and each row has an additiona
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="gridout.js.html">gridout.js</a>, <a href="gridout.js.html#line100">line 100</a>
+        <a href="gridout.js.html">gridout.js</a>, <a href="gridout.js.html#line101">line 101</a>
     </li></ul></dd>
     
 
@@ -996,7 +973,7 @@ The bottom row contains additional bottom margins, and each row has an additiona
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="gridout.js.html">gridout.js</a>, <a href="gridout.js.html#line151">line 151</a>
+        <a href="gridout.js.html">gridout.js</a>, <a href="gridout.js.html#line152">line 152</a>
     </li></ul></dd>
     
 
@@ -1078,7 +1055,7 @@ The bottom row contains additional bottom margins, and each row has an additiona
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="gridout.js.html">gridout.js</a>, <a href="gridout.js.html#line136">line 136</a>
+        <a href="gridout.js.html">gridout.js</a>, <a href="gridout.js.html#line137">line 137</a>
     </li></ul></dd>
     
 
@@ -1232,7 +1209,7 @@ The bottom row contains additional bottom margins, and each row has an additiona
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="gridout.js.html">gridout.js</a>, <a href="gridout.js.html#line110">line 110</a>
+        <a href="gridout.js.html">gridout.js</a>, <a href="gridout.js.html#line111">line 111</a>
     </li></ul></dd>
     
 
@@ -1280,7 +1257,7 @@ The bottom row contains additional bottom margins, and each row has an additiona
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Wed Feb 15 2017 17:29:36 GMT-0500 (EST)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Thu Feb 16 2017 11:31:15 GMT-0500 (EST)
 </footer>
 
 <script> prettyPrint(); </script>
