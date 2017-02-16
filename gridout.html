@@ -2,19 +2,13 @@
   <head>
     <link rel="stylesheet" href="style.css">
     <script src="gridout.js"></script>
-    <script>var width = window.innerWidth
-    || document.documentElement.clientWidth
-    || document.body.clientWidth;
-    var height = window.innerHeight
-    || document.documentElement.clientHeight
-    || document.body.clientHeight;
-    var len = Math.min(width, height)</script>
-    <script>var a = new gridout(5,5,0.1,len*0.8);</script>
+    <script>
+    </script>
     <!--The toolbar-->
     <div id="topbar">
       <div class="container">
-        Length in Grids:<input type="number" name="len" min="1" max="10" value="5">
-        <button onclick="a.draw()">DRAW</button>
+        <label class="toolbar" style="color:white;">Size:<input type="number" class="toolbar" name="grid_num_x" id="grid_num_x" min="1" max="15" value="5"></label>
+        <button class="toolbar" onclick="gridout.draw_here()">DRAW</button>
       </div>
     </div>
   </head>
