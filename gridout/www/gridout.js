@@ -206,7 +206,7 @@ class gridout {
         var height = window.innerHeight ||
             document.documentElement.clientHeight ||
             document.body.clientHeight;
-        var len = Math.min(width * 0.8, (height * 0.8) - 150);
+        var len = Math.min(width * 0.9, (height  - 100));
         var gridx = document.getElementById('grid_num_x').value;
         // margin is between 0 and 10
         var margin = document.getElementById('margin').value;

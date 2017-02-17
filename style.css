@@ -22,10 +22,7 @@ body {
   position: fixed;
   z-index: 3000;
   width: 100%;
-  height: 80px;
-  height: 20%;
-  min-height: 40px;
-  max-height: 80px;
+  height: 40px;
   background-color: #090C02;
 }
 
@@ -41,7 +38,7 @@ body {
 }
 
 #contentarea {
-  margin: 100px 3% 50px 3%;
+  margin: 50px 3% 20px 3%;
 }
 
 .bars{
