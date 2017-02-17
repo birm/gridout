@@ -8,14 +8,13 @@
     <!--The toolbar-->
     <div id="topbar">
         <div class="container">
-            <labe style="color:white;">Size: <input type="number" class="bars" name="grid_num_x" id="grid_num_x" min="1" max="15" value="5"></label>
-            <label style="color:white;">  Margins: <input type="number" class="bars" name="margin" id="margin" min="0" max="10" value="5"></label>
-            <button class="bars" onclick="gridout.draw_here()">DRAW</button>
+            <label style="color:white;">Size: <input type="range" class="input_bars" name="grid_num_x" id="grid_num_x" min="1" max="15" value="5" onchange="gridout.draw_here()"></label>
+            <label style="color:white;">  Margins: <input type="range" class="input_bars" name="margin" id="margin" min="0" max="10" value="5" onchange="gridout.draw_here()"></label>
         </div>
     </div>
 </head>
 
-<body scroll="no">
+<body scroll="no" onload="gridout.draw_here()">
     <!--The grid area-->
     <div id="contentarea">
         <div class="container">
@@ -32,7 +31,7 @@
     <!--The identity bar-->
     <div id="bottombar">
         <div class="container">
-            <p class="bars">Rbirm.us --- gridout</p>
+            <span class="bars">Rbirm.us --- gridout</span><br>
         </div>
     </div>
 </footer>
